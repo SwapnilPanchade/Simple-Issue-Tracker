@@ -3,6 +3,7 @@ package com.swapnil.Issue_Tracker.repository;
 import com.swapnil.Issue_Tracker.entity.Project;
 import com.swapnil.Issue_Tracker.model.ProjectResponse;
 import com.swapnil.Issue_Tracker.service.ProjectService;
+import jakarta.transaction.Transactional;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -51,5 +52,21 @@ public class ProjectRepo {
         session.close();
         }
         return null;
+    }
+
+    @Transactional
+    public Project updateProject(Project project, long id) {
+        Session session = sessionFactory.openSession();
+        try{
+            Project project1 = session.get(Project.class, id);
+            project1.setUpdatedAt(project.getUpdatedAt());
+            project1.setName(project.getName());
+            project1.setIssues(project.getIssues());
+            project1.setDescription(project.getDescription());
+            session.saveOrUpdate(project1);
+            return project1;
+        }finally {
+        session.close();
+        }
     }
 }

@@ -36,4 +36,10 @@ public class ProjectController {
         return projectService.getProjectById(id);
     }
 
+    //PUT update the project by id
+    @PutMapping("/{id}")
+    public ProjectResponse updateProject(@RequestBody Project project, @PathVariable long id){
+        return projectService.updateProject(project, id);
+    }
+
 }

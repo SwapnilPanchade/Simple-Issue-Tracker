@@ -35,6 +35,11 @@ public class ProjectService {
 
     public ProjectResponse getProjectById(long id) {
         Project p1 = projectRepo.getProjectById(id);
-        return null;
+        return mapToResponse(p1);
+    }
+
+    public ProjectResponse updateProject(Project project, long id) {
+        Project project1 = projectRepo.updateProject(project,id);
+        return mapToResponse(project1);
     }
 }
