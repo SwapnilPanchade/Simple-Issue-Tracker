@@ -32,4 +32,9 @@ public class ProjectService {
     public List<ProjectResponse> getAllProjects() {
         return projectRepo.getAllProjects().stream().map(this::mapToResponse).toList();
     }
+
+    public ProjectResponse getProjectById(long id) {
+        Project p1 = projectRepo.getProjectById(id);
+        return null;
+    }
 }

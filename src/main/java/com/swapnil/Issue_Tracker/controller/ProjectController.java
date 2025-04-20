@@ -17,18 +17,23 @@ public class ProjectController {
     private ProjectService projectService;
 
     @GetMapping("/string")
-    private String returnString(){
+    public String returnString(){
         return "This is local hi";
     }
 
     @PostMapping("/add")
-    private ProjectResponse addProject(@RequestBody Project project) {
+    public ProjectResponse addProject(@RequestBody Project project) {
         return projectService.addProject(project);
     }
 
     @GetMapping
-    private List<ProjectResponse> getAllProjects(){
+    public List<ProjectResponse> getAllProjects(){
         return projectService.getAllProjects();
+    }
+    //? get project by id
+    @GetMapping("/{id}")
+    public ProjectResponse getProjectById(@PathVariable long id){
+        return projectService.getProjectById(id);
     }
 
 }

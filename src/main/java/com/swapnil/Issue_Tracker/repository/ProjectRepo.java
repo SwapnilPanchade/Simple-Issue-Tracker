@@ -9,6 +9,7 @@ import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.io.Serial;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,5 +39,17 @@ public class ProjectRepo {
             session.close();
         }
 
+    }
+    public Project getProjectById(long id) {
+        Session session = sessionFactory.openSession();
+        try{
+            Project project = session.get(Project.class, id);
+            return project;
+        }catch (Exception e){
+            System.err.println("exception occured in project repo "+e);
+        }finally {
+        session.close();
+        }
+        return null;
     }
 }
