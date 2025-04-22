@@ -1,8 +1,6 @@
 package com.swapnil.Issue_Tracker.repository;
 
 import com.swapnil.Issue_Tracker.entity.Project;
-import com.swapnil.Issue_Tracker.model.ProjectResponse;
-import com.swapnil.Issue_Tracker.service.ProjectService;
 import jakarta.transaction.Transactional;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -10,8 +8,6 @@ import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import java.io.Serial;
-import java.util.ArrayList;
 import java.util.List;
 
 @Repository

@@ -4,8 +4,11 @@ import com.swapnil.Issue_Tracker.entity.Issue;
 import jakarta.transaction.Transactional;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 @Repository
 public class IssuesRepo {
@@ -25,5 +28,15 @@ public class IssuesRepo {
         finally {
         session.close();
         }
+    }
+
+    public List<Issue> getAllIssues() {
+        Session session = sessionFactory.openSession();
+        try{
+            Query<Issue> issues = session.createQuery("From Issue", Issue.class);
+            return issues.list();
+        }finally {
+
+        session.close();}
     }
 }

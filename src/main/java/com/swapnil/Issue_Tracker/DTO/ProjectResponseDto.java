@@ -1,4 +1,4 @@
-package com.swapnil.Issue_Tracker.model;
+package com.swapnil.Issue_Tracker.DTO;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class ProjectResponse {
+public class ProjectResponseDto {
     private long id;
     private String name;
     private String description;
