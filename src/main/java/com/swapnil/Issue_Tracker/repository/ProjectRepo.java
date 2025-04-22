@@ -47,7 +47,7 @@ public class ProjectRepo {
             Project project = session.get(Project.class, id);
             return project;
         }catch (Exception e){
-            System.err.println("exception occured in project repo "+e);
+            System.err.println("exception occurred  in project repo "+e);
         }finally {
         session.close();
         }
