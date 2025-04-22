@@ -41,4 +41,8 @@ public class ProjectController {
         return projectService.updateProject(project, id);
     }
 
+    @DeleteMapping("/{id}")
+    public List<ProjectResponseDto> deleteProject(@PathVariable long id ){
+        return projectService.deleteProject(id);
+    }
 }

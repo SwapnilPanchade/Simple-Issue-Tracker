@@ -42,4 +42,9 @@ public class ProjectService {
         Project project1 = projectRepo.updateProject(project,id);
         return mapToResponse(project1);
     }
+
+    public List<ProjectResponseDto> deleteProject(long id) {
+        List<Project> projects = projectRepo.deleteProjectById(id);
+        return projects.stream().map( this :: mapToResponse).toList();
+    }
 }

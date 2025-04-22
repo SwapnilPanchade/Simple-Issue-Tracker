@@ -1,10 +1,12 @@
 package com.swapnil.Issue_Tracker.repository;
 
+import com.swapnil.Issue_Tracker.DTO.ProjectResponseDto;
 import com.swapnil.Issue_Tracker.entity.Project;
 import jakarta.transaction.Transactional;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -61,6 +63,16 @@ public class ProjectRepo {
             project1.setDescription(project.getDescription());
             session.saveOrUpdate(project1);
             return project1;
+        }finally {
+        session.close();
+        }
+    }
+
+    public List<Project> deleteProjectById(long id) {
+        Session session = sessionFactory.openSession();
+        try{
+            Query<Project> query = session.createQuery("delete ? from Project" + id, Project.class);
+            return query.list();
         }finally {
         session.close();
         }

@@ -1,5 +1,6 @@
 package com.swapnil.Issue_Tracker.repository;
 
+import com.swapnil.Issue_Tracker.DTO.IssueResponseDto;
 import com.swapnil.Issue_Tracker.entity.Issue;
 import jakarta.transaction.Transactional;
 import org.hibernate.Session;
@@ -38,5 +39,19 @@ public class IssuesRepo {
         }finally {
 
         session.close();}
+    }
+
+    public List<Issue> getIssueWithProject(long id) {
+        return null;
+    }
+
+    public Issue getIssueWIthId(long id) {
+        Session session = sessionFactory.openSession();
+        try{
+            Issue issue = session.get(Issue.class, "id");
+            return issue;
+        }finally {
+        session.close();
+        }
     }
 }
