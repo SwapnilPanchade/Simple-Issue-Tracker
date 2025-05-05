@@ -6,4 +6,3 @@ public enum IssueStatus {
     RESOLVED,
     CLOSED
 }
-//just a comment for git commit
